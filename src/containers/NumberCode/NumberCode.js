@@ -7,6 +7,7 @@ class NumberCode extends Component {
         const numberBtn = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "<", "0", "C", ".", "%", "()"];
         return (
             <div className="NumberCode">
+                {this.props.error && <span className="ErrorText">{this.props.error}</span>}
                 <div className="numberShow">
                     <h5 className="numberText">{this.props.counter}</h5>
                 </div>
@@ -68,7 +69,8 @@ class NumberCode extends Component {
 
 const mepStateToProps = state => {
     return {
-        counter: state.counter
+        counter: state.counter,
+        error: state.error
     };
 };
 

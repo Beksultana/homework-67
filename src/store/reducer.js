@@ -6,13 +6,9 @@ const initialStore = {
 const reducer = (state = initialStore, action) => {
     switch (action.type){
         case 'ADD_NUMBER': {
-           if (state.counter.length < 20){
-               return {
-                   ...state, counter: state.counter + action.number
-               };
-           } else {
-               return state
-           }
+           return {
+               ...state, counter: state.counter + action.number
+           };
         }
         case 'DELETE_ONE': {
             const removedCounter = state.counter.substr(0, state.counter.length - 1);
@@ -24,17 +20,26 @@ const reducer = (state = initialStore, action) => {
         case 'DELETE_C': {
             return {
                 ...state,
+                error: null,
                 counter: ''
             }
         }
 
         case 'EQUALLY': {
-        return {
-            ...state,
-            counter: eval(state.counter)
-        }
-    }
+            try {
+                const result = eval(state.counter);
+                return {
+                    ...state,
+                    counter: result
+                }
+            } catch (e) {
+                return {
+                    ...state,
+                    error: 'Wrong operation'
+                }
+            }
 
+    }
         default:
             return state;
     }

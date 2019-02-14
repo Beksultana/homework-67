@@ -54,3 +54,7 @@
 .C{
     background: #bd1722;
 }
+.ErrorText {
+    margin: 0 0 0 80px;
+    color: red;
+}
