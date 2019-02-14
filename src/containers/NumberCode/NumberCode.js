@@ -8,7 +8,7 @@ class NumberCode extends Component {
         return (
             <div className="NumberCode">
                 <div className="numberShow">
-                    <h2 className="numberText">{this.props.counter}</h2>
+                    <h5 className="numberText">{this.props.counter}</h5>
                 </div>
                 <div className="numbersBtn">
                     <div className="numbersBlock">

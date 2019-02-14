@@ -6,9 +6,13 @@ const initialStore = {
 const reducer = (state = initialStore, action) => {
     switch (action.type){
         case 'ADD_NUMBER': {
-            return {
-                ...state, counter: state.counter + action.number
-            };
+           if (state.counter.length < 20){
+               return {
+                   ...state, counter: state.counter + action.number
+               };
+           } else {
+               return state
+           }
         }
         case 'DELETE_ONE': {
             const removedCounter = state.counter.substr(0, state.counter.length - 1);
