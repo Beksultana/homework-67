@@ -4,7 +4,7 @@ import './NumberCode.css';
 
 class NumberCode extends Component {
     render() {
-        const numberBtn = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "<", "0", "C"];
+        const numberBtn = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "<", "0", "C", ".", "%", "()"];
         return (
             <div className="NumberCode">
                 <div className="numberShow">
@@ -14,7 +14,7 @@ class NumberCode extends Component {
                     <div className="numbersBlock">
                         {
                             numberBtn.map((btn, key) => {
-                                    if (btn === "C"){
+                                if (btn === "C"){
                                     return <button key={key} onClick={this.props.deleteC} className="nubBtn btn delete">
                                         {btn}
                                     </button>
@@ -24,6 +24,21 @@ class NumberCode extends Component {
                                         {btn}
                                     </button>
                                 }
+                                if (btn === "."){
+                                    return <button key={key} onClick={() => this.props.addNumber(btn)} className="nubBtn btn E">
+                                        {btn}
+                                    </button>
+                                }
+                                if (btn === "%"){
+                                    return <button key={key} onClick={() => this.props.addNumber(btn)} className="nubBtn btn E">
+                                        {btn}
+                                    </button>
+                                }if (btn === "()"){
+                                    return <button key={key} onClick={() => this.props.addNumber(btn)} className="nubBtn btn E">
+                                        {btn}
+                                    </button>
+                                }
+
                                 if (btn){
                                     return <button key={key} onClick={() => this.props.addNumber(btn)} className="nubBtn btn num">
                                             {btn}
@@ -36,6 +51,7 @@ class NumberCode extends Component {
                         <button onClick={() => this.props.addNumber('+')} className="nubBtn btn E">+</button>
                         <button onClick={() => this.props.addNumber('-')} className="nubBtn btn E">-</button>
                         <button onClick={() => this.props.addNumber('*')} className="nubBtn btn E">*</button>
+                        <button onClick={() => this.props.addNumber('/')} className="nubBtn btn E">/</button>
                         <button onClick={this.props.equally} className="nubBtn btn E" >=</button>
                     </div>
                 </div>
