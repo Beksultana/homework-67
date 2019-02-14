@@ -48,6 +48,9 @@
     background: #19191b;
     color: #fff;
 }
+.num:hover{
+    color: #2bb459;
+}
 .C{
     background: #bd1722;
 }
