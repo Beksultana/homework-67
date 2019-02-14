@@ -15,12 +15,12 @@ class NumberCode extends Component {
                         {
                             numberBtn.map((btn, key) => {
                                     if (btn === "C"){
-                                    return <button onClick={this.props.deleteC} className="nubBtn btn delete">
+                                    return <button key={key} onClick={this.props.deleteC} className="nubBtn btn delete">
                                         {btn}
                                     </button>
                                 }
                                 if (btn === "<"){
-                                    return <button onClick={this.props.deleteOne} className="nubBtn btn delete">
+                                    return <button key={key} onClick={this.props.deleteOne} className="nubBtn btn delete">
                                         {btn}
                                     </button>
                                 }
